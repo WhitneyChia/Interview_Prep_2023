@@ -28,8 +28,9 @@ All the while tracking the max sum seen so far.
 For example:
 given: [-2,1,-3,4]
 answer here is 4 because:
+[-2,1,-3,4] at index 0, your max subarray sum is just the 0th element
 [-2,1,-3,4] at index 1, you have a -2 prefix, never include that, 1 is the max
-[-2,1,-3,4] at index 2, you have a postive prefix 1, include the 1, and add -3
+[-2,1,-3,4] at index 2, you have a positive prefix 1, include the 1, and add -3
 [-2,1,-3,4] at index 3, you have a negative prefix (1 + -3 -> -2), it is equivalent to [-2, 4]. Don't include the -2 and start with 4.
 
 """
