@@ -40,24 +40,18 @@ from typing import List
 
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-
         subsets = []
-        nums_size = len(nums)
 
-        def backtrack(index, curr_set, subsets):
-
-            if index == nums_size:
+        def backtrack(index, curr_set):
+            if index == len(nums):
                 subsets.append(curr_set.copy())
                 return
 
-            # Left side of tree, choose it
             curr_set.append(nums[index])
-            backtrack(index + 1, curr_set, subsets)
+            backtrack(index + 1, curr_set)
 
-            # Right side of tree, don't choose it
             curr_set.pop()
-            backtrack(index + 1, curr_set, subsets)
+            backtrack(index + 1, curr_set)
 
-        backtrack(0, [], subsets)
-
+        backtrack(0, [])
         return subsets
