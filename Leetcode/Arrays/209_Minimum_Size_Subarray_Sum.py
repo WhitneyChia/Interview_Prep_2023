@@ -33,9 +33,3 @@ class Solution:
                 L += 1
 
         return 0 if min_length == float('inf') else min_length
-
-
-
-
-
-
