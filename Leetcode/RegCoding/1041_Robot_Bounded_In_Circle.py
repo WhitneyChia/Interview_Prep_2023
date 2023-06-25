@@ -43,5 +43,5 @@ class Solution:
                     else:
                         position[0] -= 1
 
-        return position == [0, 0]
-
+            if position == [0, 0]:
+                return True
