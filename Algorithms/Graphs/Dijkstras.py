@@ -40,20 +40,3 @@ def shortest_path(edges, n, src):
                 heapq.heappush(min_heap, (weight_dest + weight_dest2, dest2))
 
     return shortest
-
-
-if __name__ == "__main__":
-
-    times = [[2, 1, 1], [2, 3, 1], [3, 4, 1]]
-    n = 4
-    k = 2
-    ans = 2
-
-    print(shortest_path(times, n, k))
-
-    times = [[1, 2, 1]]
-    n = 2
-    k = 1
-    ans = 1
-
-    print(shortest_path(times, n, k))
