@@ -30,24 +30,22 @@ class Solution:
 
         adj_list = collections.defaultdict(list)
 
-        for u, v, w in times:
-            adj_list[u].append((v, w))
+        for time in times:
+            src, dest, weight = time[0], time[1], time[2]
+            adj_list[src].append((dest, weight))
 
-        min_heap = [(0, k)]
-        visited = set()
-        t = 0
+        minHeap = [(0, k)]
+        shortest_paths = {}
 
-        while min_heap:
-            w1, n1 = heapq.heappop(min_heap)
-            if n1 in visited:
+        while minHeap:
+            weight, node = heapq.heappop(minHeap)
+            if node in shortest_paths:
                 continue
-            visited.add(n1)
-            t = max(t, w1)
 
-            for n2, w2 in adj_list[n1]:
-                if n2 not in visited:
-                    heapq.heappush(min_heap, (w2 + w1, n2))
+            shortest_paths[node] = weight
 
-        return t if len(visited) == n else -1
+            for neighbor in adj_list[node]:
+                node2, weight2 = neighbor[0], neighbor[1]
+                heapq.heappush(minHeap, (weight + weight2, node2))
 
-
+        return max(shortest_paths.values()) if len(shortest_paths) == n else -1
