@@ -41,3 +41,11 @@ class Solution:
                 right -= 1
 
         return total_water
+
+
+if __name__ == "__main__":
+
+    test = [0, 1, 3, 0, 1, 2, 0, 4, 2, 0, 3, 0]
+
+    sol = Solution()
+    print(sol.trap(test))
